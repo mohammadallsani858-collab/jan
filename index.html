@@ -25,7 +25,6 @@
       position: relative;
     }
 
-    /* ব্যাকগ্রাউন্ডের "I Love You Jan" লেখাটি এখন পরিষ্কার বোঝা যাবে */
     body::before {
       content: "I Love You Jan ❤️";
       position: fixed;
@@ -34,7 +33,7 @@
       transform: translate(-50%, -50%);
       font-size: 10vw; 
       font-weight: 900;
-      color: rgba(255, 255, 255, 0.12); /* উজ্জ্বলতা বাড়ানো হয়েছে */
+      color: rgba(255, 255, 255, 0.12); 
       text-shadow: 0 0 20px rgba(255, 0, 127, 0.3), 0 0 40px rgba(0, 242, 255, 0.2);
       z-index: 0; 
       white-space: nowrap;
@@ -60,9 +59,7 @@
       z-index: 10;
     }
 
-    .zoom-in {
-      transform: scale(1.1);
-    }
+    .zoom-in { transform: scale(1.1); }
 
     #timer-display {
       font-size: 1.6rem;
@@ -117,17 +114,21 @@
       font-size: 0.95rem;
       outline: none;
       resize: none;
+      width: 100%;
+      box-sizing: border-box;
+      margin-bottom: 10px;
     }
 
     .btn-send {
       background: linear-gradient(45deg, #00f2ff, #38bdf8);
       color: black;
       border: none;
-      padding: 10px;
+      padding: 12px;
       border-radius: 10px;
       font-weight: bold;
       cursor: pointer;
       width: 100%;
+      transition: 0.3s;
     }
 
     .heart {
@@ -163,9 +164,13 @@
       <hr style="border: 0.5px solid rgba(255,255,255,0.1); margin: 15px 0;">
 
       <div class="comment-section">
-        <label style="font-size: 0.9rem; color: #38bdf8;">কেমন লাগলো জানাও পিচ্চি? 😊</label>
-        <textarea class="comment-input" id="userComment" rows="2" placeholder="এখানে কিছু লেখো..."></textarea>
-        <button class="btn-send" onclick="sendFeedback()">সেন্ড করো ✈️</button>
+        <label style="font-size: 0.9rem; color: #38bdf8; margin-bottom: 5px; display: block;">কেমন লাগলো জানাও পিচ্চি? 😊</label>
+        
+        <form action="https://formspree.io/f/তোমার_লিঙ্ক_এখানে" method="POST">
+          <textarea class="comment-input" name="Tanjina's Message" placeholder="এখানে কিছু লেখো..." rows="2" required></textarea>
+          <button type="submit" class="btn-send">সেন্ড করো ✈️</button>
+        </form>
+        
       </div>
     </div>
   </div>
@@ -174,7 +179,6 @@
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     document.getElementById("live-date").innerHTML = new Date().toLocaleDateString('bn-BD', options);
 
-    // লক্ষ্য: ৩রা মার্চ (আজকের সময় অনুযায়ী আনলক হবে)
     const targetDate = new Date("March 3, 2026 00:00:00").getTime(); 
     let isTimeUp = false;
 
@@ -215,13 +219,6 @@
       heart.style.animationDuration = Math.random() * 3 + 2 + 's';
       document.body.appendChild(heart);
       setTimeout(() => heart.remove(), 5000);
-    }
-
-    function sendFeedback() {
-      if (document.getElementById('userComment').value) {
-        alert("তোমার মেসেজটি সানি পেয়েছে! ❤️");
-        document.getElementById('userComment').value = "";
-      }
     }
   </script>
 </body>
