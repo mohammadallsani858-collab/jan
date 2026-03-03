@@ -25,6 +25,7 @@
       position: relative;
     }
 
+    /* ব্যাকগ্রাউন্ডের "I Love You Jan" লেখা */
     body::before {
       content: "I Love You Jan ❤️";
       position: fixed;
@@ -45,7 +46,7 @@
     .glass-card {
       background: rgba(255, 255, 255, 0.07); 
       backdrop-filter: blur(25px);
-      padding: 30px;
+      padding: 40px 30px;
       border-radius: 35px;
       border: 1px solid rgba(255, 255, 255, 0.15);
       width: 90%;
@@ -96,41 +97,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .comment-section {
-      margin-top: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      text-align: left;
-    }
-
-    .comment-input {
-      background: rgba(0, 0, 0, 0.7);
-      border: 2px solid #00f2ff;
-      border-radius: 12px;
-      padding: 12px;
-      color: white;
-      font-family: 'Hind Siliguri';
-      font-size: 0.95rem;
-      outline: none;
-      resize: none;
-      width: 100%;
-      box-sizing: border-box;
-      margin-bottom: 10px;
-    }
-
-    .btn-send {
-      background: linear-gradient(45deg, #00f2ff, #38bdf8);
-      color: black;
-      border: none;
-      padding: 12px;
-      border-radius: 10px;
-      font-weight: bold;
-      cursor: pointer;
-      width: 100%;
-      transition: 0.3s;
-    }
-
     .heart {
       position: absolute;
       color: #ff007f;
@@ -155,23 +121,14 @@
     <div id="message-box">
       <h1 style="color: #ff007f; font-size: 1.6rem; text-shadow: 2px 2px 10px rgba(255, 0, 127, 0.4);">শুভ জন্মদিন প্রিয়তমা! তানজিনা 🎂</h1>
       
-      <p style="font-size: 1rem; line-height: 1.6; text-align: justify; margin-bottom: 10px;">
+      <p style="font-size: 1.1rem; line-height: 1.7; text-align: justify; margin-bottom: 20px;">
         তুমি আমার শখের নারী, আমার জীবনের সবচেয়ে বড় পাওয়া। অনেক ভালোবাসি তোমায়! আর তুমি আমার জীবনের প্রথম ভালোবাসা, আর আমি চাই তুমিই যেন আমার জীবনের শেষ ভালোবাসা হয়ে থাকো। সত্যি বলতে কি, তুমি যখন রাগ করো, তোমাকে অনেক সুন্দর লাগে; আর যখন হাসো, তখন তোমার মায়াবী হাসিতে আমি বারবার হেরে যাই। তোমার মায়ায় আমি এমনভাবে পড়েছি, যা হয়তো তুমি কখনো কল্পনাও করতে পারবে না। আমার সারাটা জীবন তোমার এই মায়ার বাঁধনেই আটকে থাকতে চাই। ❤️
       </p>
       
-      <p style="font-weight: bold; font-size: 1.3rem; color: #00f2ff; text-shadow: 0 0 10px rgba(0, 242, 255, 0.8);">— সানি — I love You Tanjina</p>
-
-      <hr style="border: 0.5px solid rgba(255,255,255,0.1); margin: 15px 0;">
-
-      <div class="comment-section">
-        <label style="font-size: 0.9rem; color: #38bdf8; margin-bottom: 5px; display: block;">কেমন লাগলো জানাও পিচ্চি? 😊</label>
-        
-        <form action="https://formspree.io/f/xpqjgbpn" method="POST">
-          <textarea class="comment-input" name="Message_from_Tanjina" placeholder="এখানে কিছু লেখো..." rows="2" required></textarea>
-          <button type="submit" class="btn-send">সেন্ড করো ✈️</button>
-        </form>
-        
-      </div>
+      <p style="font-weight: bold; font-size: 1.4rem; color: #00f2ff; text-shadow: 0 0 10px rgba(0, 242, 255, 0.8); margin-top: 20px;">
+        — সানি —<br>
+        I love You Tanjina
+      </p>
     </div>
   </div>
 
