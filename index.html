@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>পিচ্চির স্পেশাল সারপ্রাইজ ❤️</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Hind Siliguri', sans-serif;
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                  url('https://i.ibb.co.com/cSjL5kGD/original-54300c821f21ca5510fe014b82dfba01.webp'); 
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ব্যাকগ্রাউন্ডের "I Love You Jan" লেখাটি এখন পরিষ্কার বোঝা যাবে */
+    body::before {
+      content: "I Love You Jan ❤️";
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 10vw; 
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.12); /* উজ্জ্বলতা বাড়ানো হয়েছে */
+      text-shadow: 0 0 20px rgba(255, 0, 127, 0.3), 0 0 40px rgba(0, 242, 255, 0.2);
+      z-index: 0; 
+      white-space: nowrap;
+      pointer-events: none;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.07); 
+      backdrop-filter: blur(25px);
+      padding: 30px;
+      border-radius: 35px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      width: 90%;
+      max-width: 500px;
+      max-height: 85vh;
+      overflow-y: auto;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+      transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      z-index: 10;
+    }
+
+    .zoom-in {
+      transform: scale(1.1);
+    }
+
+    #timer-display {
+      font-size: 1.6rem;
+      color: #ff007f;
+      font-weight: bold;
+      margin: 15px 0;
+      text-shadow: 0 0 10px rgba(255, 0, 127, 0.5);
+    }
+
+    .btn-surprise {
+      background: linear-gradient(45deg, #ff007f, #7000ff);
+      color: white;
+      border: none;
+      padding: 15px 40px;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.4s;
+    }
+
+    .btn-surprise:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255, 0, 127, 0.6);
+    }
+
+    #message-box { 
+      display: none; 
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .comment-section {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      text-align: left;
+    }
+
+    .comment-input {
+      background: rgba(0, 0, 0, 0.7);
+      border: 2px solid #00f2ff;
+      border-radius: 12px;
+      padding: 12px;
+      color: white;
+      font-family: 'Hind Siliguri';
+      font-size: 0.95rem;
+      outline: none;
+      resize: none;
+    }
+
+    .btn-send {
+      background: linear-gradient(45deg, #00f2ff, #38bdf8);
+      color: black;
+      border: none;
+      padding: 10px;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff007f;
+      font-size: 20px;
+      animation: fall linear forwards;
+      z-index: 5;
+    }
+
+    @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+  </style>
+</head>
+<body>
+
+  <div class="glass-card" id="card">
+    <div id="initial-view">
+      <h2 style="font-size: 1rem; color: #38bdf8;">আজকের তারিখ: <span id="live-date"></span></h2>
+      <h1 style="font-size: 1.8rem;">তানজিনা তোমার জন্য! ❤️</h1>
+      <div id="timer-display">লোড হচ্ছে...</div>
+      <button class="btn-surprise" onclick="checkTime()">ওপেন করো 🎁</button>
+    </div>
+
+    <div id="message-box">
+      <h1 style="color: #ff007f; font-size: 1.6rem; text-shadow: 2px 2px 10px rgba(255, 0, 127, 0.4);">শুভ জন্মদিন প্রিয়তমা! তানজিনা 🎂</h1>
+      
+      <p style="font-size: 1rem; line-height: 1.6; text-align: justify; margin-bottom: 10px;">
+        তুমি আমার শখের নারী, আমার জীবনের সবচেয়ে বড় পাওয়া। অনেক ভালোবাসি তোমায়! আর তুমি আমার জীবনের প্রথম ভালোবাসা, আর আমি চাই তুমিই যেন আমার জীবনের শেষ ভালোবাসা হয়ে থাকো। সত্যি বলতে কি, তুমি যখন রাগ করো, তোমাকে অনেক সুন্দর লাগে; আর যখন হাসো, তখন তোমার মায়াবী হাসিতে আমি বারবার হেরে যাই। তোমার মায়ায় আমি এমনভাবে পড়েছি, যা হয়তো তুমি কখনো কল্পনাও করতে পারবে না। আমার সারাটা জীবন তোমার এই মায়ার বাঁধনেই আটকে থাকতে চাই। ❤️
+      </p>
+      
+      <p style="font-weight: bold; font-size: 1.3rem; color: #00f2ff; text-shadow: 0 0 10px rgba(0, 242, 255, 0.8);">— সানি — I love You Tanjina</p>
+
+      <hr style="border: 0.5px solid rgba(255,255,255,0.1); margin: 15px 0;">
+
+      <div class="comment-section">
+        <label style="font-size: 0.9rem; color: #38bdf8;">কেমন লাগলো জানাও পিচ্চি? 😊</label>
+        <textarea class="comment-input" id="userComment" rows="2" placeholder="এখানে কিছু লেখো..."></textarea>
+        <button class="btn-send" onclick="sendFeedback()">সেন্ড করো ✈️</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById("live-date").innerHTML = new Date().toLocaleDateString('bn-BD', options);
+
+    // লক্ষ্য: ৩রা মার্চ (আজকের সময় অনুযায়ী আনলক হবে)
+    const targetDate = new Date("March 3, 2026 00:00:00").getTime(); 
+    let isTimeUp = false;
+
+    setInterval(() => {
+      const diff = targetDate - new Date().getTime();
+      if (diff <= 0) {
+        document.getElementById("timer-display").innerHTML = "সারপ্রাইজ আনলক হয়েছে! ❤️";
+        isTimeUp = true;
+        return;
+      }
+      const days = Math.floor(diff / 86400000);
+      const hrs = Math.floor((diff % 86400000) / 3600000);
+      const mins = Math.floor((diff % 3600000) / 60000);
+      const secs = Math.floor((diff % 60000) / 1000);
+      document.getElementById("timer-display").innerHTML = `${days}d ${hrs}h ${mins}m ${secs}s`;
+    }, 1000);
+
+    function checkTime() {
+      if (isTimeUp) {
+        const card = document.getElementById('card');
+        card.classList.add('zoom-in'); 
+        
+        setTimeout(() => {
+          document.getElementById('initial-view').style.display = 'none';
+          document.getElementById('message-box').style.display = 'block';
+          setInterval(createHeart, 250);
+        }, 300); 
+      } else {
+        alert("পিচ্চি, এখনো সময় হয়নি! 😉❤️");
+      }
+    }
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '💖';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+
+    function sendFeedback() {
+      if (document.getElementById('userComment').value) {
+        alert("তোমার মেসেজটি সানি পেয়েছে! ❤️");
+        document.getElementById('userComment').value = "";
+      }
+    }
+  </script>
+</body>
+</html>
